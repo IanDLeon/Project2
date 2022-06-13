@@ -2,9 +2,11 @@
   "name": "project2",
   "version": "1.0.0",
   "description": "Do you drive a car? Are you tired of always hitting potholes? Do you want to get it fixed but do not know how? \r Drumrolls--- Introducing Snitches for Ditches. This App will allow you to take initiative get them fixed. All you would have to do join our community by siging up, pin the location on where it is, and we will handle the rest. We will keep you updated on the status of the pot hole. More features to be added later.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
