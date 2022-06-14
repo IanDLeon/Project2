@@ -1,0 +1,30 @@
+{% layout "layout.liquid" %} {% block content %}
+<div>
+    <form action="/holes/{{holy._id}}?_method=PUT" method="post">
+        <fieldset>
+            <legend>Edit {{holy.location}}</legend>
+            <label>
+                Location:<input 
+                type="text" 
+                name="location" 
+                placeholder="Enter Location" 
+                value="{{holy.location}}" />
+            </label>
+            <label>
+                Description:<input 
+                type="text" 
+                name="severity" 
+                placeholder="Enter Description" 
+                value="{{holy.severity}}" />
+            </label>
+            <label>
+                Fixed:<input 
+                type="checkbox" 
+                name="readyToEat" {% if holy.fixed==true %} checked
+                {% endif %} />
+            </label>
+        </fieldset>
+        <input type="submit" value="Edit {{holy.location}}" />
+    </form>
+</div>
+{% endblock %}

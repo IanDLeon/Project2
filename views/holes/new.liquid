@@ -1,0 +1,17 @@
+{% layout "layout.liquid" %} {% block content %}
+<div>
+  <form action="/holes" method="post">
+    <fieldset>
+      <legend>Submit a new Issue</legend>
+      <label>
+        ISSUE:<input type="text" name="location" placeholder="enter coordinates" />
+      </label>
+      <label>
+        Description:<input type="text" name="severity" placeholder="enter issue decription" />
+      </label>
+      <label> Fixed:<input type="checkbox" name="readyToEat" /> </label>
+    </fieldset>
+    <input type="submit" value="Submit issue" />
+  </form>
+</div>
+{% endblock %}

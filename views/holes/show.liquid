@@ -1,0 +1,22 @@
+{% layout "layout.liquid" %} {% block content %}
+<div>
+    <article>
+        <h2>
+            {{ holy.name }} -
+
+            {% if readyToEat == true %}
+            Ready to Eat
+            {% else %}
+            Not Ready to Eat
+            {% endif %}
+        </h2>
+        <h3>{{ fruit.color }}</h3>
+        <a href="/holes/{{ holy._id }}/edit"><button>Edit</button></a>
+        <form action="/holes/{{ holy._id }}?_method=DELETE" method="POST">
+            <input type="submit" value="Delete" />
+        </form>
+        <a href="/holes/"><button>Back to Main</button></a>
+    </article>
+</div>
+{% endblock %}
+
