@@ -1,12 +1,12 @@
 {% layout "layout.liquid" %} {% block content %}
 <div>
-    <a href="/holes/new"><button>Create a new issue</button></a>
-    <a href="/users/logout"><button>Logout</button></a>
+    <a  href="/holes/new"><button>Create a new issue</button></a>
+    <a class="btn" href="/users/logout"><button>Logout</button></a>
     {% for holes in holy %}
     <article>
         <a href="/holes/{{ holes._id }}">
             <h2>
-                {{holes.username}} - {% if holy.fixed == true %} Fixed {% else %} Not
+                {{holes.username}} - {% if holes.fixed == true %} Fixed {% else %} Not
                 Fixed {% endif %}
                 {{holes.location}}
             </h2>
