@@ -8,6 +8,8 @@ const Holes = require("../models/hole.js");
 // Create Route
 /////////////////////////////////////////
 const router = express.Router();
+const reviewsCtrl = require('../controllers/reviews');
+const res = require("express/lib/response");
 // add user to req.body to track related user
 
 
@@ -39,7 +41,7 @@ router.get("/new", (req, res) => {
 
 // index route
 router.get("/", async (req, res) => {
-  // find all the fruits
+  // find all the holes
   Holes.find({ /*username: req.session.username*/ })
     // render a template after they are found
     .then((holy) => {
@@ -161,7 +163,33 @@ router.put("/:id", (req, res) => {
           res.json({ error });
       });
 });
+
+/// Reviews
+router.post('/:id/reviews', reviewsCtrl.create)
+
+// route
+router.get("/:id/reviews", (req, res) => {
+  // get the id from params
+  const id = req.params.id;
+
+  // find the particular hole from the database
+  Holes.findById(id)
+      .then((holy) => {
+          // render the template with the data from the database
+          res.render("holes/show.liquid", { holy });
+      })
+      .catch((error) => {
+          console.log(error);
+          res.json({ error });
+      });
+});
+
+
+
+
+
 //////////////////////////////////////////
 // Export the Router
 //////////////////////////////////////////
 module.exports = router;
+
