@@ -1,0 +1,18 @@
+body{
+  background-color: cadetblue;
+}
+
+h1 {
+  text-align: center;
+}
+
+article{
+  text-align: center;
+}
+
+form, a, button, input{
+  align-content: center;
+  
+  
+}
+
