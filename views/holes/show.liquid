@@ -1,22 +1,68 @@
 {% layout "layout.liquid" %} {% block content %}
 <div>
-    <article>
-        <h2>
-            {{ holy.name }} -
-
-            {% if readyToEat == true %}
-            Ready to Eat
-            {% else %}
-            Not Ready to Eat
+  <article>
+    <h2>
+      {{ holy.name }} -
+      
+      {% if holy.fixed == true %}
+      Fixed
+      {% else %}
+            Not Fixed
             {% endif %}
-        </h2>
-        <h3>{{ fruit.color }}</h3>
-        <a href="/holes/{{ holy._id }}/edit"><button>Edit</button></a>
-        <form action="/holes/{{ holy._id }}?_method=DELETE" method="POST">
+          </h2>
+          <a href="/holes/{{ holy._id }}/edit"><button>Edit</button></a>
+          <form action="/holes/{{ holy._id }}?_method=DELETE" method="POST">
             <input type="submit" value="Delete" />
-        </form>
-        <a href="/holes/"><button>Back to Main</button></a>
-    </article>
-</div>
+          </form>
+          <a href="/holes/"><button>Back to Main</button></a>
+        </article>
+      </div>
+      <h2>Reviews</h2>
+      <form  method="POST" action="/holes/{{ holy._id }}/reviews">
+        <label>Review:</label>
+  <textarea name="content"></textarea>
+  <label>Rating:</label>
+  <select name="rating">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <input type="submit" value="Add Review">
+</form>
+{% for review in holy.reviews %}
+<p>{{ review.content }}</p>
+{%endfor%}
+<style>
+  #map{
+    height: 400px;
+    width:400px;
+  }
+  </style>
+<div id ="map"></div>
+
+  <script>
+    function initMap(){
+      const options = {
+        zoom:14,
+        center: {lat: 40.730610,lng:-73.935242}
+      }
+      const map = new google.maps.Map(document.getElementById('map'), options);
+      console.log(map)
+
+      const marker = new google.maps.Marker({
+    position: uluru,
+    map: map,
+  });
+
+    }
+    </script>
+    <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=MYKEYcallback=initMap&v=weekly"
+          defer
+        ></script>
+  
+
 {% endblock %}
 
