@@ -10,6 +10,7 @@ const HolesRouter = require("./controllers/holes.js");
 const UserRouter = require("./controllers/users.js");
 const session = require("express-session")
 const MongoStore = require("connect-mongo");// store data into our mongo
+const reviewsRouter = require('./controllers/holes');
 
 //! Create our Express Application Object Bind Liquid Templating Engine
 const app = require('liquid-express-views')(express(), {
@@ -50,3 +51,4 @@ app.get('/', (req, res) => {
 // Server Listener
 const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`Now Listening on port ${PORT}`));
+
