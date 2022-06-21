@@ -1,14 +1,16 @@
 body{
-  background-color: cadetblue;
+  background-color: rgb(255, 255, 255);
   font-family: system-ui;
+  margin:0;
+  padding: 0;
 }
 
 h1 {
   text-align: center;
 }
-
+a{text-decoration: none;}
 article{
-  text-align: center;  
+  /*text-align: center;*/  
 }
 
 form, a, button, input{
@@ -16,6 +18,20 @@ form, a, button, input{
   
   
 }
+header{background: green;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 3px 4px #0000005e;
+  margin-bottom: 30px;}
+  header h1{margin:0 10px;display:inline-block}
+header a{float:right;margin:5px;text-decoration: none;
+color:#fff} 
+footer{    height: 100px;
+  background: green;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  box-shadow:0 -3px 4px #0000005e;} 
 button{
 background:green;
 color:#fff;
@@ -24,7 +40,8 @@ button,input,textarea,select{padding:10px;
   border:none;
 outline: none;
 box-shadow:0px 3px 8px 2px #0003;}
-main{text-align: center;}
+main{ max-width: 500px;
+  margin: auto;}
 form fieldset{display: grid;
   width: 400px;
   justify-content: center;
@@ -40,15 +57,37 @@ input[type="text"],input[type="password"]{float: right;
   .table{    display: flex;
     justify-content: center;}
   .table form,.table a{margin: 5px;}  
-  .table form input{    background: #c11313;
-    color: #fff;}
+  .table form input{background: none;
+    box-shadow: none;
+    color: #c11313;
+    padding: 0;}
   .addreview{display: flex;
       justify-content: center;}
-      .addreview input,.addreview select,.addreview textarea   {    margin: 5px;}
-.review{width: 500px;
-  margin: auto;
+      .addreview input,.addreview select,.addreview textarea   {    margin: 5px;
+         box-shadow:none;
+        border:1px solid #eee}
+.review{margin: auto 10px;
   padding: 10px;
   margin-top: 10px;
-  border: 1px solid #666;
   border-radius: 5px;
-  text-align: left;}
+  text-align: left;
+  background: #eee;}
+  @media only screen and (max-width: 600px)  {
+    form fieldset{width:90%}
+    header h1{font-size: 19px;}
+  }
+
+  .reviews{    border: 1px solid #eee;
+    padding: 50px;
+    position: relative;
+    margin-top: 50px;}
+  .reviews h2{position: absolute;
+    top: -20px;
+    margin: 0;
+    left: 20%;
+    background: #8e27a1;
+    color: #fff;
+    width: 60%;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 3px 3px 2px #eee;}

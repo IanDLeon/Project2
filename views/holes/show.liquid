@@ -11,14 +11,15 @@
             {% endif %}
           </h2>
           <div class="table">
-          <a href="/holes/{{ holy._id }}/edit"><button>Edit</button></a>
+          <a href="/holes/{{ holy._id }}/edit">Edit</a>
           <form action="/holes/{{ holy._id }}?_method=DELETE" method="POST">
             <input type="submit" value="Delete" />
           </form>
-          <a href="/holes/"><button>Back to Main</button></a>
+          <a href="/holes/">Back to Main</a>
         </div>
         </article>
       </div>
+      <div class="reviews">
       <h2>Reviews</h2>
       <form class="addreview" method="POST" action="/holes/{{ holy._id }}/reviews">
         <label>Review:</label>
@@ -37,7 +38,7 @@
 <p class="review">{{ review.content }}</p>
 {%endfor%}
 
-
+</div>
 <style>
   #map{
     height: 400px;
